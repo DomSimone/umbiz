@@ -2,7 +2,9 @@ import os
 from huggingface_hub import hf_hub_download
 
 MODEL_REPO = "DomSimone/Umbuzo"
-MODEL_FILENAME = "umbuzo-gemma-2b-v3data.f16.gguf"
+# Switched to a 4-bit quantized model to reduce memory usage.
+# PLEASE VERIFY THIS FILENAME EXISTS IN THE HUGGING FACE REPOSITORY.
+MODEL_FILENAME = "umbuzo-gemma-2b-v3data.q4_K_M.gguf"
 
 def download_model():
     print(f"Downloading {MODEL_FILENAME} from {MODEL_REPO}...")
