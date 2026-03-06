@@ -1,0 +1,48 @@
+{
+  "name": "AFDMI Backend",
+  "description": "African Development Models Initiative - Backend Server with Document Processing",
+  "repository": "https://github.com/yourusername/afdmi-backend",
+  "keywords": [
+    "nodejs",
+    "document-processing",
+    "api",
+    "deepseek",
+    "pdf-extraction"
+  ],
+  "env": {
+    "NODE_ENV": {
+      "description": "Node environment",
+      "value": "production"
+    },
+    "PORT": {
+      "description": "Port for Node server",
+      "value": "3000"
+    },
+    "JWT_SECRET": {
+      "description": "Secret key for JWT token signing",
+      "value": "generate-a-secure-random-string-here",
+      "required": true
+    },
+    "DEEPSEEK_API_KEY": {
+      "description": "API key for DeepSeek AI service",
+      "value": "sk-your-deepseek-api-key-here",
+      "required": true
+    },
+    "PYTHON_PORT": {
+      "description": "Port for Python extraction service",
+      "value": "5001"
+    },
+    "PYTHON_SERVICE_HOST": {
+      "description": "Host for Python service",
+      "value": "localhost"
+    }
+  },
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    },
+    {
+      "url": "heroku/python"
+    }
+  ]
+}

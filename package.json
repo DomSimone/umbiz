@@ -1,0 +1,36 @@
+{
+  "name": "afdmi-backend",
+  "version": "1.0.0",
+  "description": "African Development Models Initiative Backend Server",
+  "main": "workflows/main.js",
+  "scripts": {
+    "start": "node workflows/main.js",
+    "dev": "nodemon workflows/main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "api",
+    "backend",
+    "nodejs",
+    "document-processing"
+  ],
+  "author": "AFDMI Team",
+  "license": "MIT",
+  "dependencies": {
+    "busboy": "^1.3.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.1.2",
+    "dotenv": "^16.3.1",
+    "node-fetch": "^2.6.12",
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "body-parser": "^1.20.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": "18.x",
+    "npm": ">=9.0.0"
+  }
+}

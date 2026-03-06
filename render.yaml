@@ -1,0 +1,34 @@
+services:
+  - type: web
+    name: afdmi-backend
+    env: node
+    region: oregon
+    plan: standard
+    buildCommand: npm install
+    startCommand: node workflows/main.js
+    envVars:
+      - key: PORT
+        value: 3000
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        sync: false
+      - key: DEEPSEEK_API_KEY
+        sync: false
+      - key: PYTHON_PORT
+        value: 5001
+      - key: PYTHON_SERVICE_HOST
+        value: localhost
+
+  - type: background
+    name: afdmi-python-service
+    env: python
+    region: oregon
+    plan: starter
+    buildCommand: pip install -r requirements.txt
+    startCommand: python langextract_service.py
+    envVars:
+      - key: PYTHON_PORT
+        value: 5001
+      - key: FLASK_ENV
+        value: production
