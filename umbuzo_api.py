@@ -61,7 +61,8 @@ app = FastAPI(title="Umbuzo AI Backend", description="Backend for Umbuzo GGUF Mo
 
 # --- HUGGING FACE MODEL CONFIGURATION ---
 MODEL_REPO = "DomSimone/Umbuzo"
-MODEL_FILENAME = "umbuzo-gemma-2b-v3data.f16.gguf"
+# Switched to a 4-bit quantized model to reduce memory usage.
+MODEL_FILENAME = "umbuzo-gemma-2b-v3data.q4_K_M.gguf"
 # ----------------------------------------
 
 llm = None
@@ -80,7 +81,7 @@ def load_model():
             repo_id=MODEL_REPO,
             filename=MODEL_FILENAME,
             token=hf_token,
-            n_ctx=4096,
+            n_ctx=2048,  # Reduced context size to save memory
             n_threads=4,
             verbose=True
         )
